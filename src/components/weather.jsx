@@ -37,7 +37,7 @@ const Weather = () =>{
                 />
             </div>
 
-            {/* <div className="weather-data-content"> */}
+        
 
             {(typeof weather.main!='undefined')?(
             <div className="weather-data-content">
@@ -53,7 +53,10 @@ const Weather = () =>{
                     
                 </div>
 
-                <div className="weather-data-content-bottom"></div>
+                <div className={(typeof weather.main!="undefined")?
+                ((weather.main.temp>30)?'hot':(weather.main.temp>20 && weather.main.temp<30)?'normal':'cold'):'cold'}>
+
+                </div>
                 {/* <div className="cord">
                     <div className="latitude">{weather.name},{weather.dt}</div>
                     <div className="longitude"></div>
